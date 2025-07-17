@@ -5,6 +5,11 @@ import withSearch from './src/markdoc/search.mjs'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'ts', 'tsx'],
+  images: {
+    domains: ['cdn.prod.website-files.com'],
+
+
+  }
 }
 
 export default withSearch(
