@@ -1,24 +1,30 @@
 import Image from 'next/image'
 
-export function Logomark() {
+import logo from '@/images/logo.webp'
+import logomark from '@/images/logomark.webp'
+
+export function Logomark({ className, ...props }: React.ComponentPropsWithoutRef<'img'>) {
   return (
     <Image
-      src="https://cdn.prod.website-files.com/6424c85b77ba7eaadd54d611/65cee4e711fac2658620cad9_Logo-Horizontal.webp"
+      src={logomark}
       alt="Logo"
-      width={106}
-      height={55}
+      width={75 as number}
+      height={75}
+      className={className}
+      {...props}
     />
   )
 }
 
-
-export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
+export function Logo({ className, ...props }: React.ComponentPropsWithoutRef<'img'>) {
   return (
     <Image
-      src="https://cdn.prod.website-files.com/6424c85b77ba7eaadd54d611/65cee4e711fac2658620cad9_Logo-Horizontal.webp"
+      src={logo}
       alt="Logo"
       width={106}
       height={55}
+      className={className}
+      {...props}
     />
   )
 }
