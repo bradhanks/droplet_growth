@@ -112,7 +112,7 @@ export function withAdaptiveText<T extends {}>(
   WrappedComponent: React.ComponentType<T>
 ) {
   return function AdaptiveTextWrapper(props: T & { className?: string }) {
-    const elementRef = useRef<HTMLElement>(null)
+    const elementRef = useRef<HTMLDivElement>(null)
     const adaptiveTextColor = useAdaptiveTextColor(elementRef)
 
     return (

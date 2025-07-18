@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
+import { useState, useEffect } from 'react'
 
 // Import your light and dark images
 import logoLight from '@/images/logo-light.webp'
 import logoDark from '@/images/logo-dark.webp'
 import logomarkLight from '@/images/logomark-light.webp'
 import logomarkDark from '@/images/logomark-dark.webp'
-import { useState, useEffect } from 'react';
 
-export function Logomark(props: React.ComponentPropsWithoutRef<'svg'>) {
+export function Logomark({ src, alt, ...props }: React.ComponentPropsWithoutRef<typeof Image>) {
   const { theme, resolvedTheme } = useTheme()
 
   // Use resolvedTheme to get the actual theme (handles 'system' theme)
@@ -17,15 +17,16 @@ export function Logomark(props: React.ComponentPropsWithoutRef<'svg'>) {
 
   return (
     <Image
-      src={logomarkSrc}
       alt="Logo"
+      src={logomarkSrc}
       width={75}
-      height={75 as number}
+      height={75}
+      {...props}
     />
   )
 }
 
-export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
+export function Logo({ src: _src, alt: alt, ...props }: React.ComponentPropsWithoutRef<typeof Image>) {
   const { theme, resolvedTheme } = useTheme()
 
   const currentTheme = resolvedTheme || theme
@@ -33,11 +34,11 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
 
   return (
     <Image
-      src={logoSrc}
       alt="Logo"
+      src={logoSrc}
       width={106}
-      height={55 as number}
-      className={"h-9 w-auto fill-slate-700 dark:fill-sky-100"}
+      height={55}
+      className="h-9 w-auto fill-slate-700 dark:fill-sky-100"
       {...props}
     />
   )
@@ -98,4 +99,3 @@ export function LogoWithLoading() {
     />
   )
 }
-// Removed the conflicting local useState function definition
