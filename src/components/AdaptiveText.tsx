@@ -74,9 +74,12 @@ interface AdaptiveTextProps {
   as?: keyof JSX.IntrinsicElements
 }
 
-export default function AdaptiveText({ children, className = '', as: Component = 'p' }: AdaptiveTextProps) {
+export default function AdaptiveText({ children, className = '', as = 'p' }: AdaptiveTextProps) {
   const elementRef = useRef<HTMLElement>(null)
   const adaptiveTextColor = useAdaptiveTextColor(elementRef)
+
+  // Create the component with proper typing
+  const Component = as as any
 
   return (
     <Component
@@ -89,7 +92,9 @@ export default function AdaptiveText({ children, className = '', as: Component =
 }
 
 // Alternative: CSS-based approach using CSS custom properties
-export function AdaptiveTextCSS({ children, className = '', as: Component = 'p' }: AdaptiveTextProps) {
+export function AdaptiveTextCSS({ children, className = '', as = 'p' }: AdaptiveTextProps) {
+  const Component = as as any
+
   return (
     <Component
       className={`adaptive-text ${className}`}
