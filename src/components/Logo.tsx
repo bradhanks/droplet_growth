@@ -8,7 +8,7 @@ import logoDark from '@/images/logo-dark.webp'
 import logomarkLight from '@/images/logomark-light.webp'
 import logomarkDark from '@/images/logomark-dark.webp'
 
-export function Logomark({ src, alt, ...props }: React.ComponentPropsWithoutRef<typeof Image>) {
+export function Logomark({ className, src, ...props }: React.ComponentPropsWithoutRef<typeof Image>) {
   const { theme, resolvedTheme } = useTheme()
 
   // Use resolvedTheme to get the actual theme (handles 'system' theme)
@@ -17,16 +17,16 @@ export function Logomark({ src, alt, ...props }: React.ComponentPropsWithoutRef<
 
   return (
     <Image
-      alt="Logo"
-      src={logomarkSrc}
+      src={src || logomarkSrc}
       width={75}
       height={75}
+      className={className}
       {...props}
     />
   )
 }
 
-export function Logo({ src: _src, className, alt, ...props }: React.ComponentPropsWithoutRef<typeof Image>) {
+export function Logo({ className, src, alt, ...props }: React.ComponentPropsWithoutRef<typeof Image>) {
   const { theme, resolvedTheme } = useTheme()
 
   const currentTheme = resolvedTheme || theme
@@ -34,20 +34,19 @@ export function Logo({ src: _src, className, alt, ...props }: React.ComponentPro
 
   return (
     <Image
-      alt="Logo"
       src={logoSrc}
-      width={106}
+      alt="Logo"
       height={55}
-      className="h-9 w-auto fill-slate-700 dark:fill-sky-100"
+      className={className}
       {...props}
     />
   )
 }
 
 // Alternative approach using CSS classes (if you want to handle it with CSS)
-export function LogoWithCSS() {
+export function LogoWithCSS({ className }: { className?: string }) {
   return (
-    <div className="logo-container">
+    <div className={`logo-container ${className || ''}`}>
       <Image
         src={logoLight}
         alt="Logo"
@@ -67,7 +66,7 @@ export function LogoWithCSS() {
 }
 
 // If you need to handle loading states
-export function LogoWithLoading() {
+export function LogoWithLoading({ className }: { className?: string }) {
   const { theme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -83,6 +82,7 @@ export function LogoWithLoading() {
         alt="Logo"
         width={106}
         height={55}
+        className={className}
       />
     )
   }
@@ -96,6 +96,7 @@ export function LogoWithLoading() {
       alt="Logo"
       width={106}
       height={55}
+      className={className}
     />
   )
 }
