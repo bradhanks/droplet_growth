@@ -1,30 +1,101 @@
 import Image from 'next/image'
+import { useTheme } from 'next-themes'
 
-import logo from '@/images/logo.webp'
-import logomark from '@/images/logomark.webp'
+// Import your light and dark images
+import logoLight from '@/images/logo-light.webp'
+import logoDark from '@/images/logo-dark.webp'
+import logomarkLight from '@/images/logomark-light.webp'
+import logomarkDark from '@/images/logomark-dark.webp'
+import { useState, useEffect } from 'react';
 
-export function Logomark({ className, ...props }: React.ComponentPropsWithoutRef<'img'>) {
+export function Logomark(props: React.ComponentPropsWithoutRef<'svg'>) {
+  const { theme, resolvedTheme } = useTheme()
+
+  // Use resolvedTheme to get the actual theme (handles 'system' theme)
+  const currentTheme = resolvedTheme || theme
+  const logomarkSrc = currentTheme === 'dark' ? logomarkDark : logomarkLight
+
   return (
     <Image
-      src={logomark}
+      src={logomarkSrc}
       alt="Logo"
-      width={75 as number}
-      height={75}
-      className={className}
+      width={75}
+      height={75 as number}
+    />
+  )
+}
+
+export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
+  const { theme, resolvedTheme } = useTheme()
+
+  const currentTheme = resolvedTheme || theme
+  const logoSrc = currentTheme === 'dark' ? logoDark : logoLight
+
+  return (
+    <Image
+      src={logoSrc}
+      alt="Logo"
+      width={106}
+      height={55 as number}
+      className={"h-9 w-auto fill-slate-700 dark:fill-sky-100"}
       {...props}
     />
   )
 }
 
-export function Logo({ className, ...props }: React.ComponentPropsWithoutRef<'img'>) {
+// Alternative approach using CSS classes (if you want to handle it with CSS)
+export function LogoWithCSS() {
+  return (
+    <div className="logo-container">
+      <Image
+        src={logoLight}
+        alt="Logo"
+        width={106}
+        height={55}
+        className="block dark:hidden"
+      />
+      <Image
+        src={logoDark}
+        alt="Logo"
+        width={106}
+        height={55}
+        className="hidden dark:block"
+      />
+    </div>
+  )
+}
+
+// If you need to handle loading states
+export function LogoWithLoading() {
+  const { theme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    // Return light theme as fallback during hydration
+    return (
+      <Image
+        src={logoLight}
+        alt="Logo"
+        width={106}
+        height={55}
+      />
+    )
+  }
+
+  const currentTheme = resolvedTheme || theme
+  const logoSrc = currentTheme === 'dark' ? logoDark : logoLight
+
   return (
     <Image
-      src={logo}
+      src={logoSrc}
       alt="Logo"
       width={106}
       height={55}
-      className={className}
-      {...props}
     />
   )
 }
+// Removed the conflicting local useState function definition
