@@ -47,14 +47,14 @@ export default function RootLayout({
     >
       <body className="flex min-h-full bg-white dark:bg-slate-900">
         <Providers>
-          <Image
+          {/* <Image
             alt="Background"
             src={diamonds}
             className={clsx("z-[-1] max-w-none absolute w-[210vw] -bottom-[49.6em] -left-[70.8vw] max-991:-bottom-[42.6em] max-991:-left-[65.6vw] max-767:w-[340vw] max-767:-bottom-[737.7px] max-767:-left-[89.9vw] max-479:w-[119em] max-479:-bottom-[52.7rem] max-479:-left-[36rem]")}
             width={2100}
             height={1000}
             priority
-          />
+          /> */}
           <Layout>{children}</Layout>
         </Providers>
       </body>

@@ -26,7 +26,7 @@ export function Logomark({ src, alt, ...props }: React.ComponentPropsWithoutRef<
   )
 }
 
-export function Logo({ src: _src, alt: alt, ...props }: React.ComponentPropsWithoutRef<typeof Image>) {
+export function Logo({ src: _src, className, alt, ...props }: React.ComponentPropsWithoutRef<typeof Image>) {
   const { theme, resolvedTheme } = useTheme()
 
   const currentTheme = resolvedTheme || theme
