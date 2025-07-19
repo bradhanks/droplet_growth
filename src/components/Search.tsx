@@ -223,7 +223,7 @@ function SearchResults({
     return (
       <p className="px-4 py-8 text-center text-sm text-slate-700 dark:text-slate-400">
         No results for &ldquo;
-        <span className="break-words text-slate-900 dark:text-white">
+        <span className="break-words text-slate-900 dark:text-slate-900">
           {query}
         </span>
         &rdquo;
@@ -263,7 +263,7 @@ const SearchInput = forwardRef<
         ref={inputRef}
         data-autofocus
         className={clsx(
-          'flex-auto appearance-none bg-transparent pl-12 text-slate-900 outline-hidden placeholder:text-slate-400 focus:w-full focus:flex-none sm:text-sm dark:text-white [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden [&::-webkit-search-results-button]:hidden [&::-webkit-search-results-decoration]:hidden',
+          'flex-auto appearance-none bg-transparent pl-12 text-slate-900 outline-hidden placeholder:text-slate-400 focus:w-full focus:flex-none sm:text-sm dark:text-slate-900 [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden [&::-webkit-search-results-button]:hidden [&::-webkit-search-results-decoration]:hidden',
           autocompleteState.status === 'stalled' ? 'pr-11' : 'pr-4',
         )}
         {...inputProps}

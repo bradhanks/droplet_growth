@@ -60,7 +60,7 @@ export function useAdaptiveTextColor(elementRef: React.RefObject<HTMLElement>) {
     if (rgb) {
       const [r, g, b] = rgb
       const isDark = isDarkBackground(r, g, b)
-      setTextColor(isDark ? 'text-white' : 'text-gray-900')
+      setTextColor(isDark ? 'text-slate-900' : 'text-gray-900')
     }
   }, [elementRef])
 

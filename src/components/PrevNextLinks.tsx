@@ -26,14 +26,14 @@ function PageLink({
 }) {
   return (
     <div {...props}>
-      <dt className="font-display text-sm font-medium text-slate-900 dark:text-white">
+      <dt className="font-display text-sm font-medium text-slate-900 dark:text-slate-900">
         {dir === 'next' ? 'Next' : 'Previous'}
       </dt>
       <dd className="mt-1">
         <Link
           href={href}
           className={clsx(
-            'flex items-center gap-x-1 text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300',
+            'flex items-center gap-x-1 text-lg font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300',
             dir === 'previous' && 'flex-row-reverse',
           )}
         >

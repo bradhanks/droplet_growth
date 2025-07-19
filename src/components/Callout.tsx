@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import { SectionNumber } from '@/components/SectionNumber'
 
-import { Icon } from '@/components/Icon'
 
 const styles = {
   note: {
@@ -17,27 +17,23 @@ const styles = {
   },
 }
 
-const icons = {
-  note: (props: { className?: string }) => <Icon icon="lightbulb" {...props} />,
-  warning: (props: { className?: string }) => (
-    <Icon icon="warning" color="amber" {...props} />
-  ),
-}
+
 
 export function Callout({
   title,
   children,
   type = 'note',
+  number = 1,
 }: {
   title: string
   children: React.ReactNode
   type?: keyof typeof styles
+  number?: number | string
 }) {
-  let IconComponent = icons[type]
 
   return (
     <div className={clsx('my-8 flex rounded-3xl p-6', styles[type].container)}>
-      <IconComponent className="h-8 w-8 flex-none" />
+      <SectionNumber number={number} />
       <div className="ml-4 flex-auto">
         <p
           className={clsx('not-prose font-display text-xl', styles[type].title)}

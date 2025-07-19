@@ -14,11 +14,11 @@ export function Navigation({
   let pathname = usePathname()
 
   return (
-    <nav className={clsx('text-base lg:text-sm my-16 mr-8 ml-0.5  xl:w-72 xl:mr-16', className)}>
+    <nav className={clsx('text-lg lg:text-sm my-16 mr-8 ml-0.5  xl:w-72 xl:mr-16', className)}>
       <ul role="list" className="space-y-9">
         {navigation.map((section) => (
           <li key={section.title}>
-            <h2 className="font-display font-medium text-slate-900 dark:text-white">
+            <h2 className="font-display font-medium text-slate-900 dark:text-slate-900">
               {section.title}
             </h2>
             <ul

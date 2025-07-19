@@ -2,12 +2,10 @@ import { type Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import clsx from 'clsx'
-import Image from 'next/image'
-
 import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
-import diamonds from '@/images/diamonds.svg'
-
+// import diamonds from '@/images/diamonds.svg'
+// import Image from 'next/image'
 import '@/styles/tailwind.css'
 
 const inter = Inter({
@@ -33,10 +31,8 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  className,
   children,
 }: {
-  className?: string,
   children: React.ReactNode
 }) {
   return (
@@ -50,7 +46,7 @@ export default function RootLayout({
           {/* <Image
             alt="Background"
             src={diamonds}
-            className={clsx("z-[-1] max-w-none absolute w-[210vw] -bottom-[49.6em] -left-[70.8vw] max-991:-bottom-[42.6em] max-991:-left-[65.6vw] max-767:w-[340vw] max-767:-bottom-[737.7px] max-767:-left-[89.9vw] max-479:w-[119em] max-479:-bottom-[52.7rem] max-479:-left-[36rem]")}
+            className={clsx("fixed max-w-none top-[16.6em] left-[7.8vw] opactity-10")}
             width={2100}
             height={1000}
             priority

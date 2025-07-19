@@ -17,6 +17,12 @@ const icons = {
   warning: WarningIcon,
 }
 
+Object.entries(icons).forEach(([name, component]) => {
+  if (!component) {
+    console.error(`Icon component is undefined: ${name}`)
+  }
+})
+
 const iconStyles = {
   blue: '[--icon-foreground:var(--color-slate-900)] [--icon-background:var(--color-white)]',
   amber:
@@ -34,6 +40,29 @@ export function Icon({
 } & Omit<React.ComponentPropsWithoutRef<'svg'>, 'color'>) {
   let id = useId()
   let IconComponent = icons[icon]
+
+  // Add safety check
+  if (!IconComponent) {
+    console.error(`Icon component not found for icon: "${icon}"`)
+    return (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 32 32"
+        fill="none"
+        className={clsx(className, iconStyles[color])}
+        {...props}
+      >
+        {/* Fallback icon - a simple circle */}
+        <circle
+          cx="16"
+          cy="16"
+          r="8"
+          fill="currentColor"
+          opacity="0.3"
+        />
+      </svg>
+    )
+  }
 
   return (
     <svg

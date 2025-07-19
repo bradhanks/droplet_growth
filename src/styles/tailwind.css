@@ -1,12 +1,7 @@
 @import 'tailwindcss';
 @import './prism.css';
 
-@plugin '@tailwindcss/typography';
-
-@custom-variant dark (&:where(.dark, .dark *));
-
-@theme {
-  --text-*: initial;
+:root {
   --text-xs: 0.75rem;
   --text-xs--line-height: 1rem;
   --text-sm: 0.875rem;
@@ -47,4 +42,8 @@
   }
 }
 
-
+@supports not (mix-blend-mode: screen) {
+  .bg-gradient-overlay {
+    opacity: 0.7;
+  }
+}
