@@ -7,7 +7,7 @@ import { Logo } from '@/components/Logo'
 import { MobileNavigation } from '@/components/MobileNavigation'
 import { Navigation } from '@/components/Navigation'
 import { Search } from '@/components/Search'
-
+import { ThemeSelector } from '@/components/ThemeSelector'
 function Header() {
   let [isScrolled, setIsScrolled] = useState(false)
 
@@ -46,7 +46,9 @@ function Header() {
       <div className="-my-5 mr-6 sm:mr-8 md:mr-0">
         <Search />
       </div>
-
+      <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:grow mr-10">
+        <ThemeSelector className="relative z-10" />
+      </div>
     </header>
   )
 }
