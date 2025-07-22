@@ -3,8 +3,8 @@ import { Key } from "readline";
 export const SectionNumber = ({ number, size = "small" }: { number: number | string, size?: string }) => {
   const sizes = {
     small: {
-      container: "w-12 h-12",
-      text: "text-2xl",
+      container: "w-8 h-8",
+      text: "text-xl",
       border: "border-4"
     },
     medium: {

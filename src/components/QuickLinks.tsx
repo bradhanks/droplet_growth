@@ -4,7 +4,7 @@ import { SectionNumber } from '@/components/SectionNumber'
 
 export function QuickLinks({ children }: { children: React.ReactNode }) {
   return (
-    <div className="not-prose my-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <div className="not-prose my-12 grid grid-cols-1 gap-6">
       {children}
     </div>
   )
@@ -23,17 +23,21 @@ export function QuickLink({
 }) {
   return (
     <div className="group relative rounded-xl border border-slate-200 dark:border-slate-800">
-      <div className="absolute -inset-px rounded-xl border-2 border-transparent opacity-0 [background:linear-gradient(var(--quick-links-hover-bg,var(--color-sky-50)),var(--quick-links-hover-bg,var(--color-sky-50)))_padding-box,linear-gradient(to_top,var(--color-indigo-400),var(--color-cyan-400),var(--color-sky-500))_border-box] group-hover:opacity-100 dark:[--quick-links-hover-bg:var(--color-slate-800)]" />
+      {/* ... hover effect div ... */}
       <div className="relative overflow-hidden rounded-xl p-6">
-        {/* <Icon icon={icon} className="h-8 w-8" /> */}
-        <SectionNumber number={icon} size="small" />
+        {/* New flex container */}
+        <div className="flex items-baseline gap-4">
+          <SectionNumber number={icon} size="small" />
 
-        <h2 className="mt-4 font-display text-3xl font-medium text-slate-900 dark:text-slate-900">
-          <Link href={href}>
-            <span className="absolute -inset-px rounded-xl" />
-            {title}
-          </Link>
-        </h2>
+          {/* `mt-4` class is removed from the h2 */}
+          <h2 className="font-display text-xl font-medium text-slate-900 dark:text-slate-900">
+            <Link href={href}>
+              <span className="absolute -inset-px rounded-xl" />
+              {title}
+            </Link>
+          </h2>
+        </div>
+
         <p className="mt-1 text-lg text-slate-700 dark:text-slate-400">
           {description}
         </p>
