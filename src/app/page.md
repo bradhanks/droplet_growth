@@ -6,8 +6,6 @@ nextjs:
     description: The measurement and integration framework for Droplet.io's demand generation strategy.
 ---
 
-# Asymmetric Content + Backlinks. Actionable Attribution Pipeline. Hazard-free Growth Lane.{% .lead %}
-
 {% quick-links %}
 
 {% quick-link title="Executive Summary" icon="1" href="/docs/overview/executive-summary" description="Strategy overview, proposed goals, and projected ROI." /%}
@@ -24,10 +22,10 @@ nextjs:
 
 ## Quick wins
 
-* (Rich results schema markup)[/doc/quick-wins/rich-results-schema-markup] implementation: We will implement rich results schema markup to enhance search visibility within SERP rich results and click-through rates on traditional result listings.
-* (Mobile performance optimization)[/doc/quick-wins/mobile-performance]: We will optimize our mobile performance to ensure a seamless user experience, which is critical for both SEO and user engagement.
-* (Webflow SEO optimization)[/doc/quick-wins/webflow-seo]: We will fine-tune our Webflow setup to maximize SEO performance, including optimizing page load speeds and ensuring proper indexing.
-* (Server-side analytics)[/doc/quick-wins/server-side-analytics]: We will implement GTM server-side tagging with reverse proxy to enhance data accuracy and privacy compliance.
+* [Rich results schema markup](/doc/quick-wins/rich-results-schema-markup) implementation: We will implement rich results schema markup to enhance search visibility within SERP rich results and click-through rates on traditional result listings.
+* [Mobile performance optimization](/doc/quick-wins/mobile-performance): We will optimize our mobile performance to ensure a seamless user experience, which is critical for both SEO and user engagement.
+* [Webflow SEO optimization](/doc/quick-wins/webflow-seo): We will fine-tune our Webflow setup to maximize SEO performance, including optimizing page load speeds and ensuring proper indexing.
+* [Server-side analytics](/doc/quick-wins/server-side-analytics): We will implement GTM server-side tagging with reverse proxy to enhance data accuracy and privacy compliance.
 
 
 ## Analytics overview
